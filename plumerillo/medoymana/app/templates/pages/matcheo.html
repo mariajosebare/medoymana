@@ -14,6 +14,7 @@
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light nav-bar-own">
 			<a class="navbar-brand" href="..\index.html"><img src="..\..\static\img\logo.jpeg" width="80 px" height="80 px"></a>
+			<img src="..\..\static\img\name.jpeg" width="150 px" height="80 px">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#theNav" aria-controls="theNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse navbar-collapse" id="theNav">
 				<ul class="navbar-nav ml-auto d-flex">
@@ -53,7 +54,7 @@
 					<div class="carousel-inner">
 						{% for necesidad in result['necesidades'] %}
 						<div class="carousel-item carousel-img-size {% if loop.index == 1 %} active {% endif %}">
-							<img class="d-block w-100" src="../static/img/persona.jpg">
+							<img class="d-block w-100" src="../static/img/usuario.png">
 							<div class="carousel-caption d-none d-md-block">
 								<h5>{{necesidad['usuario']['nombre']}}</h5>
 								<p>{{necesidad['descripcion_necesidad']}}</p>
