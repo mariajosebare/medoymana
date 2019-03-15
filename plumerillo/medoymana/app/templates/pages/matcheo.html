@@ -39,7 +39,7 @@
 
 		<section>
 			<article>
-				<h2>Publicacion de Necesidad</h2>
+				<h2>Matcheo de Habilidad / Necesidad</h2>
 
 
 				<h3>Habilidad:</h3>
@@ -49,9 +49,13 @@
 
 				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 					<ol class="carousel-indicators">
-						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						{% i = 0 %}
+						{% for usuario in result %}
+							<li data-target="#carouselExampleIndicators" data-slide-to="{{i}}">
+								{{usuario.nombre}}
+							</li>
+						{% i = i + 1 %}
+						{% end for}
 					</ol>
 					<div class="carousel-inner">
 						<div class="carousel-item active">

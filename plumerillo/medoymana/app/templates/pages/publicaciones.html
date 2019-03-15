@@ -3,12 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Publicaciones</title>
-	<link rel="stylesheet" href="..\source\bootstrap\css\bootstrap.css">
+	<!-- CDN de Boostrap 4.0 -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- Hoja de estilos personalizada -->
+	<link rel="stylesheet" href="..\..\static\css\styles.css">
 </head>
 <body>
 	<header>
-		<nav class="navbar justify-content-end" style="background-color: #ffce0a;">
+		<nav class="navbar navbar-light nav-bar-own">
 			<a class="navbar-item" href="#"><img src="..\icons\navBarTwo\home.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Inicio"></a>
 
 			<a class="navbar-item" href="#"><img src="..\icons\navBarTwo\user.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Perfil de Usuario"></a>
@@ -23,29 +25,27 @@
 
 	<section>
 		<article>
-			<form>
-				<div class="form-group">
-					<label for="exampleFormControlSelect1">Seleccione la habilidad: </label>
-					<select class="form-control" id="exampleFormControlSelect1">
-						<option>Electricidad</option>
-						<option>Plomeria</option>
-						<option>Jardineria</option>
-						<option>Carpinteria</option>
-						<option>Albanileria</option>
-					</select>
-				</div>
-
+			<form class="form-group">
+				<label for="exampleFormControlSelect1">Seleccione la habilidad: </label>
+				<select class="form-control" id="exampleFormControlSelect1">
+					<option>Electricidad</option>
+					<option>Plomeria</option>
+					<option>Jardineria</option>
+					<option>Carpinteria</option>
+					<option>Albanileria</option>
+				</select>
 
 				<div class="form-group">
-					<label for="exampleFormControlTextarea1">Example textarea</label>
+					<label for="exampleFormControlTextarea1">Escribe tu publicacion: </label>
 					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 				</div>
-
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
+			<div >
 
+			</article>
 
-			<div class="list-group">
+			<article class="list-group">
 				<label>Publicaciones Activas</label>
 				<a href="#" class="list-group-item list-group-item-action">Cras justo odio</a>
 				<a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
@@ -53,14 +53,6 @@
 				<a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
 				<a href="#" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
 			</div>
-
-
-
-
-		</article>
-
-		<article>
-
 		</article>
 	</section>
 
@@ -72,17 +64,18 @@
 					<div>
 						<h5>Links Rapidos</h5>
 						<ul class="list-unstyled">
-							<li><a href="#"></a>Inicio</li>
-							<li><a href="#"></a>Usuario</li>
+							<li><a href="..\index.html"></a>Inicio</li>
+							n							<li><a href="#"></a>Usuario</li>
 							<li><a href="#"></a>Salir</li>
 						</ul>
 					</div>
 					<br>
-					<div>
+
+					<div class="list-inline-item">
 						<h5>Redes Sociales</h5>
-						<li class="list-inline-item"><a href="#"><img src="icons\footerSocialMedia\instagram-logo.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Instagram"></a>Instagram</li>
+						<li><a href="#"><img src="..\icons\footerSocialMedia\instagram-logo.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Instagram"></a></li>
 						<br>
-						<li class="list-inline-item"><a href="#"><img src="icons\footerSocialMedia\at.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Instagram"></a>Mail</li>
+						<li><a href="#"><img src="..\icons\footerSocialMedia\at.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Instagram"></a></li>
 					</div>
 
 

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 from plumerillo.medoymana.persistencia import Usuarios, Necesidades
 
@@ -6,11 +6,15 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello():
-    Usuarios.seleccionar_match(4, 13)
-    #Necesidad = BaseDeDatos.correr_sql(f"SELECT * FROM propuesta WHERE ID_propuesta = ID_propuesta")
-    return Necesidades.seleccionar_por_habilidades(["12","13","22"])
+def index():
+    return app('index.html')
 
+@app.route("/publicaciones/")
+def publicacion():
+    return render_template('pages/publicaciones.html')
+
+
+@app.route()
 
 if __name__ == '__main__':
     app.run(debug=True)
