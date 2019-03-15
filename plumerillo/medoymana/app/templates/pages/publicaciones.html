@@ -28,11 +28,9 @@
 			<form class="form-group">
 				<label for="exampleFormControlSelect1">Seleccione la habilidad: </label>
 				<select class="form-control" id="exampleFormControlSelect1">
-					<option>Electricidad</option>
-					<option>Plomeria</option>
-					<option>Jardineria</option>
-					<option>Carpinteria</option>
-					<option>Albanileria</option>
+					{% for habilidad in result['habilidades'] %}
+					<option>{{habilidad['nombre']}}</option>
+					{% endfor %}
 				</select>
 
 				<div class="form-group">
@@ -47,11 +45,9 @@
 
 			<article class="list-group">
 				<label>Publicaciones Activas</label>
-				<a href="#" class="list-group-item list-group-item-action">Cras justo odio</a>
-				<a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-				<a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-				<a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-				<a href="#" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
+				{% for publicacion in result['necesidades'] %}
+					<a href="/matcheo/{{publicacion['ID_necesidad']}}" class="list-group-item list-group-item-action">{{publicacion['descripcion_necesidad']}}</a>
+				{% endfor %}
 			</div>
 		</article>
 	</section>
