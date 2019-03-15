@@ -2,64 +2,57 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<title>Intercambio de Habilidad (matcheo)</title>
 
 	<!-- CDN de Boostrap 4.0 -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<!-- Hoja de estilos personalizada -->
-  	<link rel="stylesheet" href="..\..\static\css\styles.css">
+	<link rel="stylesheet" href="..\..\static\css\styles.css">
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-light nav-bar-own">
-			<a class="navbar-brand" href="..\index.html"><img src=""></a>
+		<nav class="navbar navbar-expand-lg navbar-light nav-bar-own">
+			<a class="navbar-brand" href="..\index.html"><img src="..\..\static\img\logo.jpeg" width="80 px" height="80 px"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#theNav" aria-controls="theNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
 			<div class="collapse navbar-collapse" id="theNav">
-				<ul class="navbar-nav mr-auto nav-item active">
-					<li class="nav-item d-inline-block">
-						<a class="nav-link sr-only" href="..\index.html"><img src="..\icons\navBarTwo\home.png" width="30 px" height="30 px" alt="Inicio"></a></li>
+				<ul class="navbar-nav ml-auto d-flex">
+					
+					<li class="nav-item "><a class="nav-link" href="../index.html"><img src="../../static/icons/navBarTwo/home.png" width="40 px" height="40 px" alt="Inicio"><a></li>
 
-					<li class="nav-item d-inline-block">
-						<a class="nav-link" href="#"><img src="..\icons\navBarTwo\user.png" width="30 px" height="30 px" alt="Perfil de Usuario"></a>
-					</li>
+						<li class="nav-item"><a class="nav-link" href="#"><img src="../../static/icons/navBarTwo/user.png" width="40 px" height="40 px" alt="Perfil de Usuario"></a></li>
 
-					<li class="nav-item d-inline-block">
-						<a class="nav-link" href="..\pages\contacto.html"><img src="..\icons\navBarTwo\contact.png" width="30 px" height="30 px" alt="Contacto"></a>
-					</li>
+						<li class="nav-item"><a class="nav-link" href="../pages/contacto.html"><img src="../../static/icons/navBarTwo/contact.png" width="40 px" height="40 px" alt="Contacto"></a></li>
 
-					<li class="nav-item d-inline-block">
-							<a class="nav-link" href="..\index.html"><img src="..\icons\navBarTwo\rocket-to-rusia.png" width="30 px" height="30 px" alt="Salir"></a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-	</header>
+						<li class="nav-item"><a class="nav-link" href="../index.html"><img src="../../static/icons/navBarTwo/rocket-to-rusia.png" width="40 px" height="40 px" alt="Salir"></a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
 
-		<section>
-			<article>
+	<main class="container">
+		<section class="row">
+			<article class="col-xl-12 col-sm-6 col-md-8 col-lg-12">
 				<h2>Matcheo de Habilidad / Necesidad</h2>
-
-
 				<h3>Habilidad:</h3>
 				<label>{{result['publicacion']['habilidad']['nombre']}}</label>
 				<h3>Publicacion:</h3>
 				<label>{{result['publicacion']['descripcion_necesidad']}}</label>
 
+
 				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 					<ol class="carousel-indicators">
 						{% set i = 0 %}
 						{% for necesidad in result['necesidades'] %}
-							<li data-target="#carouselExampleIndicators" data-slide-to="{{i}}">
-								{{necesidad['nombre']}}
-							</li>
-						{% set i = i + 1 %}
-						{% endfor %}
+						<li data-target="#carouselExampleIndicators" data-slide-to="{{i}}">
+							{{necesidad['nombre']}}</li>
+							{% set i = i + 1 %}
+							{% endfor %}
 					</ol>
 					<div class="carousel-inner">
 						{% for necesidad in result['necesidades'] %}
-						<div class="carousel-item {% if loop.index == 1 %} active {% endif %}">
+						<div class="carousel-item carousel-img-size {% if loop.index == 1 %} active {% endif %}">
 							<img class="d-block w-100" src="../static/img/persona.jpg">
 							<div class="carousel-caption d-none d-md-block">
 								<h5>{{necesidad['usuario']['nombre']}}</h5>
@@ -78,50 +71,44 @@
 					</a>
 				</div>
 
-				<!-- Agregar dos boton uno para cancelar publicacion y otro para volver atras (pagina de publicaciones) -->
-			</article>
-
-			<article>
-
-			</article>
-		</section>
+					<!-- Agregar dos boton uno para cancelar publicacion y otro para volver atras (pagina de publicaciones) -->
+				</article>
+			</section>	
+		</main>
 
 
-		<footer>
-			<section id="footer">
-				<div class="container">
-					<div class="row text-center">
-						<div>
-							<h5>Links Rapidos</h5>
-							<ul class="list-unstyled">
-								<li><a href="#"></a>Inicio</li>
-								<li><a href="#"></a>Usuario</li>
-								<li><a href="#"></a>Salir</li>
-							</ul>
-						</div>
+	<footer>
+		<section id="footer">
+			<div class="container">
+				<div class="row text-center">
+					<div>
+						<h5>Links Rapidos</h5>
+						<ul class="list-unstyled">
+							<li><a href="#"></a>Inicio</li>
+							<li><a href="#"></a>Usuario</li>
+							<li><a href="#"></a>Salir</li>
+						</ul>
+					</div>
+					<br>
+					<div>
+						<h5>Redes Sociales</h5>
+						<li class="list-inline-item"><a href="#"><img src="..\static\icons\footerSocialMedia\instagram-logo.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Instagram"></a>Instagram</li>
 						<br>
-						<div>
-							<h5>Redes Sociales</h5>
-							<li class="list-inline-item"><a href="#"><img src="..\icons\footerSocialMedia\instagram-logo.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Instagram"></a>Instagram</li>
-							<br>
-							<li class="list-inline-item"><a href="#"><img src="..\icons\footerSocialMedia\at.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Instagram"></a>Mail</li>
-						</div>
-
-
+						<li class="list-inline-item"><a href="#"><img src="..\static\icons\footerSocialMedia\at.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Instagram"></a>Mail</li>
 					</div>
-					<!-- Copyright -->
-					<div class="footer-copyright text-center py-3">© 2018 Copyright:
-						<a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-					</div>
-					<!-- Copyright -->
 				</div>
-			</section>
-		</footer>
+				<!-- Copyright -->
+				<div class="footer-copyright text-center py-3">© 2019 Copyright:
+					<a href="https://mdbootstrap.com/education/bootstrap/"> Plumerillo </a>
+				</div>
+				<!-- Copyright -->
+			</div>
+		</section>
+	</footer>
 	</body>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-
-	</html>
+</html>

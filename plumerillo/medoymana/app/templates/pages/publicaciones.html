@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<title>Publicaciones</title>
 	<!-- CDN de Boostrap 4.0 -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -10,47 +11,72 @@
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-light nav-bar-own">
-			<a class="navbar-item" href="#"><img src="..\icons\navBarTwo\home.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Inicio"></a>
+		<nav class="navbar navbar-expand-lg navbar-light nav-bar-own">
+			<a class="navbar-brand" href="..\index.html"><img src="..\..\static\img\logo.jpeg" width="80 px" height="80 px"></a>
 
-			<a class="navbar-item" href="#"><img src="..\icons\navBarTwo\user.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Perfil de Usuario"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#theNav" aria-controls="theNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
-			<a class="navbar-item" href="#"><img src="..\icons\navBarTwo\contact.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Contacto"></a>
-			
-			<a class="navbar-item" href="#"><img src="..\icons\navBarTwo\rocket-to-rusia.png" width="30 px" height="30 px" class="d-inline-block align-top" alt="Salir"></a>
+			<div class="collapse navbar-collapse" id="theNav">
+				
+				<ul class="navbar-nav ml-auto">
 
+					<li class="nav-item">
+						<a class="nav-link" href="../index.html">
+							<img src="../../static/icons/navBarTwo/home.png" width="40 px" height="40 px" alt="Inicio">
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="#">
+							<img src="../../static/icons/navBarTwo/user.png" width="40 px" height="40 px" alt="Perfil de Usuario">
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../pages/contacto.html"><img src="../../static/icons/navBarTwo/contact.png" width="40 px" height="40 px" alt="Contacto"></a>
+					</li>
+
+					<li class="nav-item">
+							<a class="nav-link" href="../index.html">
+								<img src="../../static/icons/navBarTwo/rocket-to-rusia.png" width="40 px" height="40 px" alt="Salir">
+							</a>
+					</li>
+				</ul>
+			</div>
 		</nav>
 	</header>
 
 
-	<section>
-		<article>
+
+<main class="container">
+	<section class="row">
+		<article class="col-xl-12 col-sm-6 col-md-8 col-lg-12">
 			<form class="form-group">
 				<label for="exampleFormControlSelect1">Seleccione la habilidad: </label>
 				<select class="form-control" id="exampleFormControlSelect1">
-					{% for habilidad in result['habilidades'] %}
-					<option>{{habilidad['nombre']}}</option>
-					{% endfor %}
+				{% for habilidad in result['habilidades'] %}
+				<option>{{habilidad['nombre']}}</option>
+				{% endfor %}
 				</select>
 
-				<div class="form-group">
-					<label for="exampleFormControlTextarea1">Escribe tu publicacion: </label>
-					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
+			<div class="form-group">
+				<label for="exampleFormControlTextarea1">Escribe tu publicacion: </label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">Enviar</button>
 			</form>
-			<div >
+		</article>
 
-			</article>
-
-			<article class="list-group">
+		<article class="col-xl-12 col-sm-6 col-md-8 col-lg-12">
+			<div class="list-group">
 				<label>Publicaciones Activas</label>
 				{% for publicacion in result['necesidades'] %}
-					<a href="/matcheo/{{publicacion['ID_necesidad']}}" class="list-group-item list-group-item-action">{{publicacion['descripcion_necesidad']}}</a>
+				<a href="/matcheo/{{publicacion['ID_necesidad']}}" class="list-group-item list-group-item-action">{{publicacion['descripcion_necesidad']}}</a>
 				{% endfor %}
 			</div>
 		</article>
-	</section>
+	</section>	
+</main>
 
 
 	<footer>
