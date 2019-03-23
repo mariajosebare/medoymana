@@ -9,6 +9,13 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/pages/contacto.html/', methods=['GET'])
+def contacto():
+    return  render_template('pages/contacto.html')
+
+@app.route('/pages/perfil-usuario.html/', methods=['GET'])
+def perfilUsuario():
+    return  render_template('pages/perfil-usuario.html')
 
 
 @app.route("/publicaciones/<int:id_habilidad>", methods=['GET'])
