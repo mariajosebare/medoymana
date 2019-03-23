@@ -14,9 +14,8 @@ def contacto():
     return  render_template('pages/contacto.html')
 
 @app.route('/pages/perfil-usuario.html/', methods=['GET'])
-def perfilUsuario():
+def perfilusuario():
     return  render_template('pages/perfil-usuario.html')
-
 
 @app.route("/publicaciones/<int:id_habilidad>", methods=['GET'])
 def publicacion(id_habilidad):
@@ -25,7 +24,6 @@ def publicacion(id_habilidad):
         'necesidades': Necesidades.seleccionar_por_usuario(id_habilidad)
     }
     return render_template('pages/publicaciones.html', result=result)
-
 
 @app.route("/matcheo/<int:id_necesidad>", methods=['GET'])
 def matcheo(id_necesidad):
