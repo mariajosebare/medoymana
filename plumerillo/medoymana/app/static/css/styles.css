@@ -37,9 +37,12 @@
 
 .social-network-list {
   list-style: none;
+  display: inline;
 }
 
-
+.social-network-list-item{
+  display: inline-block;
+}
 
 
 /* Smaller than standard 960 (devices and browsers) */
