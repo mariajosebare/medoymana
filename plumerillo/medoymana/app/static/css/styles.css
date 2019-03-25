@@ -1,9 +1,9 @@
 .nav-bar-own{
 	background-color: #ffce0a;
-	  min-height: 80px;
+	min-height: 80px;
 }
 
-.btn-nav{
+.btn-style{
 	background-color: #e6ae20;
 	border-style: solid;
 }
@@ -20,15 +20,27 @@
 }
 
 .navbar-toggle {
-  /* (80px - button height 34px) / 2 = 23px */
   margin-top: 23px;
   padding: 9px 10px !important;
 }
 
 .carousel-img-size{
-    width: 100%; 
-    max-width: 600px !important; 
+  width: 100%; 
+  max-width: 600px !important; 
 }
+
+.space-between-elements{
+  padding: 20px 20px 20px 20px;
+  justify-content: space-around;
+ 
+}
+
+.social-network-list {
+  list-style: none;
+}
+
+
+
 
 /* Smaller than standard 960 (devices and browsers) */
 @media only screen and (max-width: 959px) {}

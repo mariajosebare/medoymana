@@ -1,9 +1,12 @@
-from flask import Flask, render_template
+import os
+from flask import Flask, render_template, request
 
 from plumerillo.medoymana.persistencia import Usuarios, Necesidades, Habilidades
 
 app = Flask(__name__)
 
+"""UPLOAD_FOLDER = os.path.basename('uploads')
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER"""
 
 @app.route("/", methods=['GET'])
 def index():
@@ -16,6 +19,20 @@ def contacto():
 @app.route('/pages/perfil-usuario.html/', methods=['GET'])
 def perfilusuario():
     return  render_template('pages/perfil-usuario.html')
+
+"""
+# Revisar el upload img user
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    file = request.files['image']
+    f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+    
+    # add your custom code to check that the uploaded file is a valid image and not a malicious file (out-of-scope for this post)
+    file.save(f)
+
+    #return render_template('index.html')
+# . revisar upload img user"""
+
 
 @app.route("/publicaciones/<int:id_habilidad>", methods=['GET'])
 def publicacion(id_habilidad):

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-	<title>Intercambio de Habilidad (matcheo)</title>
+	<title>Informacion de Usuario</title>
 
 	<!-- CDN de Boostrap 4.0 -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -27,12 +27,124 @@
         </nav>
     </header>
 
-    <main>
-        <section>
-            <article>
-                    <p> pruebaaaaaaa testttttttt</p>
-            </article>
-        </section>
+    <main class="container">
+        <section class="row">
+			<article> <!-- Usuarios Foto y Habilidades / Datos: Nombre - Movil - Email -->
+				<h1>Informacion de Usuario</h1>
+				<div >
+					<h3>Avatar de Usuario</h3>
+					<form action="/upload" method="POST" enctype="multipart/form-data">
+						<label for="selectImage">Seleccione la imagen a subir: </label>
+						<input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" capture>
+						<input type="submit" value="Subir Imagen" name="submit" class="btn btn-style">
+					</form>
+					<div class="list-group">
+							<label>Habilidades Activas</label>
+							{% for publicacion in result['necesidades'] %}
+							<a href="/matcheo/{{publicacion['ID_necesidad']}}" class="list-group-item list-group-item-action">{{publicacion['descripcion_necesidad']}}</a>
+							{% endfor %}
+					</div>
+				</div>
+
+				<div>
+
+
+				</div>
+
+
+			</article>
+
+			<article> <!-- Zona de Usuario -->
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3273.5775289558537!2d-56.17270653312417!3d-34.86684129887121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDUyJzAwLjYiUyA1NsKwMTAnMTYuOSJX!5e0!3m2!1sen!2suy!4v1553454243461" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+			</article>
+		</section>
+		
+
+		<section class="row">
+				<article> <!-- Valoraciones Recibidas -->
+					<div>
+						<div>
+								<span class="heading">User Rating</span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<p>4.1 average based on 254 reviews.</p>
+								<hr style="border:3px solid #f1f1f1">
+								
+								<div class="row">
+								  <div class="side">
+									<div>5 star</div>
+								  </div>
+								  <div class="middle">
+									<div class="bar-container">
+									  <div class="bar-5"></div>
+									</div>
+								  </div>
+								  <div class="side right">
+									<div>150</div>
+								  </div>
+								  <div class="side">
+									<div>4 star</div>
+								  </div>
+								  <div class="middle">
+									<div class="bar-container">
+									  <div class="bar-4"></div>
+									</div>
+								  </div>
+								  <div class="side right">
+									<div>63</div>
+								  </div>
+								  <div class="side">
+									<div>3 star</div>
+								  </div>
+								  <div class="middle">
+									<div class="bar-container">
+									  <div class="bar-3"></div>
+									</div>
+								  </div>
+								  <div class="side right">
+									<div>15</div>
+								  </div>
+								  <div class="side">
+									<div>2 star</div>
+								  </div>
+								  <div class="middle">
+									<div class="bar-container">
+									  <div class="bar-2"></div>
+									</div>
+								  </div>
+								  <div class="side right">
+									<div>6</div>
+								  </div>
+								  <div class="side">
+									<div>1 star</div>
+								  </div>
+								  <div class="middle">
+									<div class="bar-container">
+									  <div class="bar-1"></div>
+									</div>
+								  </div>
+								  <div class="side right">
+									<div>20</div>
+								  </div>
+								</div>
+						</div>
+						<div></div>
+					</div>
+				</article>
+				
+				<article> <!-- Valoraciones Realizadas -->
+	
+				</article>
+	
+				<article> <!-- Estadisticas Generales -->
+	
+				</article>
+
+
+		</section>
 
     </main>
 
