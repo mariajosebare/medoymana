@@ -21,6 +21,9 @@ def perfilusuario():
     result = {'habilidades': Habilidades.seleccionar_todos_para_usuario(4)}
     return  render_template('pages/perfil-usuario.html', result=result)
 
+@app.route('/chatusuario', methods=['GET'])
+def chatUsuarios():
+    return  render_template('pages/chat-usuarios.html')
 
 
 """
