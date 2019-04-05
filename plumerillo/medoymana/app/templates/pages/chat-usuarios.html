@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Recuperacion de Contrasena</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Publicaciones</title>
-	<!-- CDN de Boostrap 4.0 -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<!-- Hoja de estilos personalizada -->
-	<link rel="stylesheet" href="..\..\static\css\styles.css">
+    <!-- CDN de Boostrap 4.0 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Hoja de estilos personalizada -->
+    <link rel="stylesheet" href="..\..\static\css\styles.css">
 </head>
+
 <body>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light nav-bar-own">
-			<a class="navbar-brand" href="..\index.html"><img src="..\..\static\img\logo.jpeg" width="80 px" height="80 px"></a>
+			<a class="navbar-brand" href="/"><img src="..\..\static\img\logo.jpeg" width="80 px" height="80 px"></a>
 			<img src="..\..\static\img\name.jpeg" width="200 px" height="80 px">
-
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#theNav" aria-controls="theNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
 			<div class="collapse navbar-collapse" id="theNav">
 				<ul class="navbar-nav ml-auto d-flex">
 					<li class="nav-item "><a class="nav-link" href="/"><img src="../../static/icons/navBarTwo/home.png" width="40 px" height="40 px" alt="Inicio"></a></li>
@@ -29,39 +28,16 @@
 		</nav>
 	</header>
 
-
-
-<main class="container">
-	<h1>Busqueda de Necesidades</h1>
-	<section class="row">
-		<article class="col-xl-12 col-sm-6 col-md-8 col-lg-12">
-			<form class="form-group">
-				<label for="exampleFormControlSelect1">Seleccione la habilidad: </label>
-				<select class="form-control" id="exampleFormControlSelect1">
-				{% for habilidad in result['habilidades'] %}
-				<option>{{habilidad['nombre']}}</option>
-				{% endfor %}
-				</select>
-
-			<div class="form-group">
-				<label for="exampleFormControlTextarea1">Escribe tu publicacion: </label>
-				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-			</div>
-			<button type="submit" class="btn btn-style">Enviar</button>
-			</form>
-		</article>
-
-		<article class="col-xl-12 col-sm-6 col-md-8 col-lg-12">
-			<div class="list-group">
-				<label>Publicaciones Activas</label>
-				{% for publicacion in result['necesidades'] %}
-				<a href="/matcheo/{{publicacion['ID_necesidad']}}" class="list-group-item list-group-item-action">{{publicacion['descripcion_necesidad']}}</a>
-				{% endfor %}
-			</div>
-		</article>
-	</section>	
-</main>
-
+	<main class="container">
+		<section class="row"> 
+			<article class="col-xl-12 col-sm-6 col-md-8 col-lg-12">
+				<h1>Mensajeria</h1>
+				<div>
+					<img src="..\..\static\img\chat.PNG" alt="Chat entre usuarios">
+				</div>
+			</article>
+		</section>
+	</main>
 
 	<footer>
 		<section id="footer">
@@ -92,12 +68,4 @@
 		</section>
 	</footer>
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
-
-
-
 </html>
