@@ -12,13 +12,14 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER"""
 def index():
     return render_template('index.html')
 
-@app.route('/pages/contacto.html/', methods=['GET'])
+@app.route('/contacto', methods=['GET'])
 def contacto():
     return  render_template('pages/contacto.html')
 
-@app.route('/pages/perfil-usuario.html/', methods=['GET'])
+@app.route('/perfil', methods=['GET'])
 def perfilusuario():
-    return  render_template('pages/perfil-usuario.html')
+    result = {'habilidades': Habilidades.seleccionar_todos_para_usuario(4)}
+    return  render_template('pages/perfil-usuario.html', result=result)
 
 """
 # Revisar el upload img user

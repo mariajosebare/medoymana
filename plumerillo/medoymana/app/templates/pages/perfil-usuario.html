@@ -36,13 +36,14 @@
 					<form action="/upload" method="POST" enctype="multipart/form-data">
 						<label for="selectImage">Seleccione la imagen a subir: </label>
 						<input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" capture>
-						<input type="submit" value="Subir Imagen" name="submit" class="btn btn-style">
 					</form>
 					<div class="list-group">
 							<label>Habilidades Activas</label>
-							{% for publicacion in result['necesidades'] %}
-							<a href="/matcheo/{{publicacion['ID_necesidad']}}" class="list-group-item list-group-item-action">{{publicacion['descripcion_necesidad']}}</a>
-							{% endfor %}
+							<ul>
+								{% for habilidad in result['habilidades'] %}
+								<li>{{habilidad.nombre}}</li>
+								{% endfor %}
+							</ul>
 					</div>
 				</div>
 
