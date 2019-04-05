@@ -21,6 +21,8 @@ def perfilusuario():
     result = {'habilidades': Habilidades.seleccionar_todos_para_usuario(4)}
     return  render_template('pages/perfil-usuario.html', result=result)
 
+
+
 """
 # Revisar el upload img user
 @app.route('/upload', methods=['POST'])
