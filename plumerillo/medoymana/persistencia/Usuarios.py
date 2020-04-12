@@ -16,3 +16,13 @@ def seleccionar_uno(id):
         return usuario
     else:
         return None
+
+
+def seleccionar_uno(email, password):
+    usuario = BaseDeDatos.correr_sql(f"select * from usuario where email = '{email}' and password = '{password}'")
+    if usuario.__len__() == 1:
+        usuario = usuario[0]
+        return usuario
+    else:
+        return None
+
