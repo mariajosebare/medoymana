@@ -12,5 +12,6 @@ __cursor = pymysql.connect(
 
 def correr_sql(query):
     __cursor.execute(query)
+    __cursor.connection.commit()
     return __cursor.fetchall()
 
