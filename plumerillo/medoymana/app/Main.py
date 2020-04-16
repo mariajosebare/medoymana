@@ -76,5 +76,15 @@ def agregar_mensaje_chat(ID_usuario_1, ID_usuario_2, mensaje, fecha_hora_mensaje
 
 
 
+@app.route("/necesidades", methods=['GET'])
+def necesidades():
+    habilidades = Habilidades.seleccionar_todos
+    return jsonify(habilidades)
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
