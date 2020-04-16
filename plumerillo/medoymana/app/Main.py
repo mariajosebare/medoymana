@@ -64,5 +64,15 @@ def login():
     return jsonify(result)
 
 
+@app.route("/necesidades", methods=['GET'])
+def necesidades():
+    habilidades = Habilidades.seleccionar_todos
+    return jsonify(habilidades)
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
