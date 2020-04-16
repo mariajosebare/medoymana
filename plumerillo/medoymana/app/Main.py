@@ -63,16 +63,16 @@ def login():
         result = {'error': 'Usuario o contraseña inválidos'}
     return jsonify(result)
 
-@app.route("/chat/<int: ID_usuario_1>/int: ID_usuario_2>", methods=['GET'])
-def chat(ID_usuario_1, ID_usuario_2, mensaje, fecha_hora_mensaje):
+@app.route("/chat", methods=['GET'])
+def chat(ID_usuario_1, ID_usuario_2):
     result = {
-        'mensaje': Chat.obtener_mensajes(id1= (), id2= (), mensaje, fecha_hora_mensaje)
+        'mensaje': Chat.obtener_mensajes(id1=(), id2=())
     }
     return jsonify(result)
 
-@app.route("/chat/<int: ID_usuario_1>/int: ID_usuario_2>", methods=['PUT'])
-def agregar_mensaje_chat(ID_usuario_1, ID_usuario_2, mensaje, fecha_hora_mensaje):
-    return Chat.agregar_mensajes(id1=(), id2=(), mensaje, fecha_hora_mensaje )
+@app.route("/chat", methods=['PUT'])
+def agregar_mensaje_chat(ID_usuario_1, ID_usuario_2):
+    return Chat.agregar_mensajes(id1=(), id2=(), mensaje= ())
 
 
 
