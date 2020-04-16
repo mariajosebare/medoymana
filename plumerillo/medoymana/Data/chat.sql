@@ -1,7 +1,7 @@
 USE mdm3;
 /* Procedemos a ingresar los mensajes del chat*/
 
-INSERT INTO chat (ID_usuario_1,ID_usuario_2,mensaje,fecha_hora_mensaje) VALUES
+INSERT INTO chat (id_usuario_1,id_usuario_2,mensaje,fecha_hora_mensaje) VALUES
 
 (1,3,"Hola, ¿cómo estás? puedes realizar un book de fotos del cumpleaños?",'2020-04-15-10:00:00'),
 (3,1,"Hola, todo bien. Cuándo es el cumple?",'2020-04-15-10:02:00'),

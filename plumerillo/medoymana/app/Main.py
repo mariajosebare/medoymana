@@ -25,11 +25,6 @@ def perfilusuario():
     return  render_template('pages/perfil-usuario.html', result=result)
 
 
-@app.route('/chatusuario', methods=['GET'])
-def chatUsuarios():
-    return  render_template('pages/chat-usuarios.html')
-
-
 @app.route("/publicaciones/<int:id_habilidad>", methods=['GET'])
 def publicacion(id_habilidad):
     result = {
@@ -63,17 +58,18 @@ def login():
         result = {'error': 'Usuario o contraseña inválidos'}
     return jsonify(result)
 
-@app.route("/chat", methods=['GET'])
-def chat(ID_usuario_1, ID_usuario_2):
+
+@app.route("/chat/<id_usuario_1>,<id_usuario_2>", methods=['GET'])
+def chat(id_usuario_1, id_usuario_2):
     result = {
         'mensaje': Chat.obtener_mensajes(id1=(), id2=())
     }
     return jsonify(result)
 
-@app.route("/chat", methods=['PUT'])
-def agregar_mensaje_chat(ID_usuario_1, ID_usuario_2):
-    return Chat.agregar_mensajes(id1=(), id2=(), mensaje= ())
 
+@app.route("/chat/<id_usuario_1>,<id_usuario_2>", methods=['PUT'])
+def agregar_mensaje_chat(id_usuario_1, id_usuario_2):
+    return Chat.agregar_mensajes(id1=(), id2=(), mensaje= ())
 
 
 @app.route("/necesidades", methods=['GET'])

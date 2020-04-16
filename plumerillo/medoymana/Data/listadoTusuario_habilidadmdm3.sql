@@ -1,5 +1,5 @@
 USE mdm3;
-INSERT INTO usuario_habilidad (ID_usuario,ID_habilidad) VALUES 
+INSERT INTO usuario_habilidad (id_usuario,id_habilidad) VALUES
 (1,50),
 (1,2),
 (1,37),

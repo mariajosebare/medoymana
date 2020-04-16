@@ -12,7 +12,7 @@ def seleccionar_uno(id):
         #usuario['habilidades'] = []
         #for habilidad in Habilidades.seleccionar_todos_para_usuario(usuario['ID_usuario']):
             #usuario['habilidades'].append(habilidad)
-        usuario['habilidades'] = Habilidades.seleccionar_todos_para_usuario(usuario['ID_usuario'])
+        usuario['habilidades'] = Habilidades.seleccionar_todos_para_usuario(usuario['id_usuario'])
         return usuario
     else:
         return None

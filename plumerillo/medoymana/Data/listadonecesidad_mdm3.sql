@@ -1,7 +1,7 @@
 USE mdm3;
 /* Procedemos a ingresar las necesidade de los usuarios (serian las publicaciones) para posterior macheo.*/
 
-INSERT INTO necesidad (ID_habilidad,ID_usuario,descripcion_necesidad,fecha_creado) VALUES
+INSERT INTO necesidad (id_habilidad,id_usuario,descripcion_necesidad,fecha_creado) VALUES
 
 (25,1,"Hola necesito quien pueda sacar fotos en un cumpleaño",07/03/2019),
 (26,1,"Hola necesito quien pueda filmar en un cumpleaño a realizarce el dia 7 de abril",07/03/2019),
