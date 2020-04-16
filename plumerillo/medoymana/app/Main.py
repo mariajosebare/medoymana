@@ -1,4 +1,3 @@
-import os
 from flask import Flask, render_template, request, jsonify
 
 from plumerillo.medoymana.persistencia import Usuarios, Necesidades, Habilidades, Chat
@@ -23,6 +22,11 @@ def contacto():
 def perfilusuario():
     result = {'habilidades': Habilidades.seleccionar_todos_para_usuario(4)}
     return  render_template('pages/perfil-usuario.html', result=result)
+
+
+@app.route('/chatusuario', methods=['GET'])
+def chatUsuarios():
+    return  render_template('pages/chat-usuarios.html')
 
 
 @app.route("/publicaciones/<int:id_habilidad>", methods=['GET'])
@@ -59,6 +63,25 @@ def login():
     return jsonify(result)
 
 
+#Realizamos la creacion de la ruta para la creación de usuario
+@app.route("/usuarios", methods=['PUT'])
+def crear_usuario():
+    nombre = request.form['nombre']
+    apellido = request.form['apellido']
+    telefono = request.form['telefono']
+    ci = request.form['ci']
+    email = request.form['email']
+    password = request.form['password']
+    fecha_nacimiento =request.form['fecha de nacimiento']
+    calle = request.form['calle']
+    numero_puerta =request.form['numero de puerta']
+    esquina_1 = request.form['esquina 1']
+    esquina_2 = request.form['esquina 2']
+    Usuarios.agregar_usuario(ci, nombre, apellido, fecha_nacimiento, email, telefono, calle, numero_puerta, esquina_1, esquina_2, password)
+    return jsonify(True)
+
+#Finaliza la ruta de creación de usuario
+
 @app.route("/chat/<id_usuario_1>,<id_usuario_2>", methods=['GET'])
 def chat(id_usuario_1, id_usuario_2):
     result = {
@@ -76,7 +99,6 @@ def agregar_mensaje_chat(id_usuario_1, id_usuario_2):
 def necesidades():
     habilidades = Habilidades.seleccionar_todos
     return jsonify(habilidades)
-
 
 
 if __name__ == '__main__':
