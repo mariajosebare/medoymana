@@ -75,5 +75,14 @@ CREATE TABLE usuario_habilidad (
     PRIMARY KEY (ID_usuario,ID_habilidad)
     );
 
-    
+ /* se realiza la tabla del chat.*/ 
+CREATE TABLE chat (
+	ID_chat INT AUTO_INCREMENT PRIMARY KEY,
+    ID_usuario_1 INT,
+	ID_usuario_2 INT,
+    mensaje VARCHAR(300),
+    fecha_hora_mensaje TIMESTAMP,
+    FOREIGN KEY (ID_usuario_1) REFERENCES usuario (ID_usuario),
+    FOREIGN KEY (ID_usuario_2) REFERENCES usuario (ID_usuario)
+    );   
 	
