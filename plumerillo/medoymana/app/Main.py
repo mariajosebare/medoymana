@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, jsonify
 
-from plumerillo.medoymana.persistencia import Usuarios, Necesidades, Habilidades
+from plumerillo.medoymana.persistencia import Usuarios, Necesidades, Habilidades, Chat
 
 app = Flask(__name__)
 
@@ -62,6 +62,18 @@ def login():
     else:
         result = {'error': 'Usuario o contraseña inválidos'}
     return jsonify(result)
+
+@app.route("/chat/<int: ID_usuario_1>/int: ID_usuario_2>", methods=['GET'])
+def chat(ID_usuario_1, ID_usuario_2, mensaje, fecha_hora_mensaje):
+    result = {
+        'mensaje': Chat.obtener_mensajes(id1= (), id2= (), mensaje, fecha_hora_mensaje)
+    }
+    return jsonify(result)
+
+@app.route("/chat/<int: ID_usuario_1>/int: ID_usuario_2>", methods=['PUT'])
+def agregar_mensaje_chat(ID_usuario_1, ID_usuario_2, mensaje, fecha_hora_mensaje):
+    return Chat.agregar_mensajes(id1=(), id2=(), mensaje, fecha_hora_mensaje )
+
 
 
 if __name__ == '__main__':
