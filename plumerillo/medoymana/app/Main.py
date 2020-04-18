@@ -95,14 +95,25 @@ def agregar_mensaje_chat(id_usuario_1, id_usuario_2):
     return Chat.agregar_mensajes(id1=(), id2=(), mensaje= ())
 
 
-@app.route("/necesidades", methods=['GET'])
-def necesidades():
-    habilidades = Habilidades.seleccionar_todos
+@app.route("/habilidades", methods=['GET'])
+def habilidades():
+    habilidades = Habilidades.seleccionar_todos()
     return jsonify(habilidades)
+
+
+@app.route("/necesidades", methods=['PUT'])
+def agregar_necesidad():
+    id_habilidad = request.form['id_habilidad']
+    id_usuario = request.form['id_usuario']
+    necesidad = request.form['necesidad']
+    Necesidades.agregar_necesidades(id_usuario, id_habilidad, necesidad)
+    return jsonify(True)
+
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
