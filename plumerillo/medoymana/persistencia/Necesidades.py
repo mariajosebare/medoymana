@@ -23,6 +23,7 @@ def seleccionar_por_id(idNecesidad):
     else:
         return None
 
+
 def seleccionar_match(idUsuario, idHabilidad): #id usuario soy yo. idHabilidad es la que yo necesito
     necesidades_match = {}
     mis_habilidades=[]
@@ -43,3 +44,14 @@ def seleccionar_match(idUsuario, idHabilidad): #id usuario soy yo. idHabilidad e
                     break
 
     return necesidades_match.values()
+
+
+def obtener_necesidades(idUsuario,idHabilidades):
+    necesidades = BaseDeDatos.correr_sql(f"SELECT * FROM necesidad WHERE (id_habilidad = {idHabilidades} or(id_usuario ={idUsuario}) order by fecha_creado")
+    return necesidades
+
+
+def agregar_necesidades(id_usuario,id_habilidad,necesidad):
+    necesidades=BaseDeDatos.correr_sql(f"INSERT INTO necesidad (id_habilidad,id_usuario,descripcion_necesidad,fecha_creado) VALUES ({id_habilidad},{id_usuario},'{necesidad}',now())")
+    return True
+
