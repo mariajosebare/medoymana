@@ -92,7 +92,9 @@ def chat(id_usuario_1, id_usuario_2):
 
 @app.route("/chat/<id_usuario_1>,<id_usuario_2>", methods=['PUT'])
 def agregar_mensaje_chat(id_usuario_1, id_usuario_2):
-    return Chat.agregar_mensajes(id1=(), id2=(), mensaje= ())
+    mensaje = request.form['mensaje']
+
+    return Chat.agregar_mensajes(id_usuario_1, id_usuario_2, mensaje)
 
 
 @app.route("/necesidades", methods=['GET'])
