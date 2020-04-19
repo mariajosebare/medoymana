@@ -51,7 +51,6 @@ def obtener_necesidades(idUsuario,idHabilidades):
     return necesidades
 
 
-
 def agregar_necesidades(id_usuario,id_habilidad,necesidad):
     necesidades=BaseDeDatos.correr_sql(f"INSERT INTO necesidad (id_habilidad,id_usuario,descripcion_necesidad,fecha_creado) VALUES ({id_habilidad},{id_usuario},'{necesidad}',now())")
     return True
