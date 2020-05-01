@@ -82,19 +82,18 @@ def crear_usuario():
 
 #Finaliza la ruta de creación de usuario
 
-@app.route("/chat/<id_usuario_1>,<id_usuario_2>", methods=['GET'])
+@app.route("/chat/<id_usuario_1>/<id_usuario_2>", methods=['GET'])
 def chat(id_usuario_1, id_usuario_2):
-    result = {
-        'mensaje': Chat.obtener_mensajes(id1=(), id2=())
-    }
+    result = Chat.obtener_mensajes(id_usuario_1, id_usuario_2)
+
     return jsonify(result)
 
 
-@app.route("/chat/<id_usuario_1>,<id_usuario_2>", methods=['PUT'])
+@app.route("/chat/<id_usuario_1>/<id_usuario_2>", methods=['PUT'])
 def agregar_mensaje_chat(id_usuario_1, id_usuario_2):
     mensaje = request.form['mensaje']
 
-    return Chat.agregar_mensajes(id_usuario_1, id_usuario_2, mensaje)
+    return jsonify(Chat.agregar_mensajes(id_usuario_1, id_usuario_2, mensaje))
 
 
 @app.route("/habilidades", methods=['GET'])
