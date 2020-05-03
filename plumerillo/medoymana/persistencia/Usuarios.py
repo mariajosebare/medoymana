@@ -5,14 +5,14 @@ def seleccionar_todos():
     return BaseDeDatos.correr_sql("select * from usuario")
 
 
-def seleccionar_uno(id):
-    usuario = BaseDeDatos.correr_sql(f"select * from usuario where id_usuario = {id}")
+def seleccionar_por_id(id):
+    usuario = BaseDeDatos.correr_sql(f"select * from usuario where ID_usuario = {id}")
     if usuario.__len__() == 1:
         usuario = usuario[0]
         #usuario['habilidades'] = []
         #for habilidad in Habilidades.seleccionar_todos_para_usuario(usuario['ID_usuario']):
             #usuario['habilidades'].append(habilidad)
-        usuario['habilidades'] = Habilidades.seleccionar_todos_para_usuario(usuario['id_usuario'])
+        usuario['habilidades'] = Habilidades.seleccionar_todos_para_usuario(usuario['ID_usuario'])
         return usuario
     else:
         return None

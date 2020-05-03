@@ -8,17 +8,17 @@ def seleccionar_por_usuario(idUsuario):
 
 # llamar como seleccionar_por_habilidades(["1", "3", "5"])
 def seleccionar_por_habilidades(idHabilidades):
-    necesidades=BaseDeDatos.correr_sql(f"SELECT * FROM necesidad WHERE id_habilidad in ({','.join(idHabilidades)})")
+    necesidades=BaseDeDatos.correr_sql(f"SELECT * FROM necesidad WHERE ID_habilidad in ({','.join(idHabilidades)})")
     for necesidad in necesidades:
-        necesidad['usuario'] = Usuarios.seleccionar_uno(necesidad['id_usuario'])
+        necesidad['usuario'] = Usuarios.seleccionar_por_id(necesidad['ID_usuario'])
     return necesidades
 
 
 def seleccionar_por_id(idNecesidad):
-    necesidad=BaseDeDatos.correr_sql(f"SELECT * FROM necesidad WHERE id_Necesidad = {idNecesidad}")
+    necesidad=BaseDeDatos.correr_sql(f"SELECT * FROM necesidad WHERE ID_Necesidad = {idNecesidad}")
     if necesidad.__len__() == 1:
         necesidad = necesidad[0]
-        necesidad['habilidad'] = Habilidades.seleccionar_uno(necesidad['id_habilidad'])
+        necesidad['habilidad'] = Habilidades.seleccionar_uno(necesidad['ID_habilidad'])
         return necesidad
     else:
         return None
@@ -26,32 +26,35 @@ def seleccionar_por_id(idNecesidad):
 
 def seleccionar_match(idUsuario, idHabilidad): #id usuario soy yo. idHabilidad es la que yo necesito
     necesidades_match = {}
+    retorno = []
     mis_habilidades=[]
-    yo = Usuarios.seleccionar_uno(idUsuario)
+    yo = Usuarios.seleccionar_por_id(idUsuario)
     for habilidad in yo['habilidades']:
-        mis_habilidades.append(str(habilidad['id_habilidad']))
+        mis_habilidades.append(str(habilidad['ID_habilidad']))
 
     necesidades = seleccionar_por_habilidades(mis_habilidades)
     #Hay que sacar de uno mismo
 
     for necesidad in necesidades:
-        idNecesidad = necesidad['id_necesidad']
+        idNecesidad = necesidad['ID_necesidad']
         if idNecesidad not in necesidades_match:
-            usuario = Usuarios.seleccionar_uno(necesidad['id_usuario'])
+            usuario = Usuarios.seleccionar_por_id(necesidad['ID_usuario'])
             for habilidad in usuario['habilidades']:
-                if habilidad['id_habilidad'] == idHabilidad:
+                if habilidad['ID_habilidad'] == idHabilidad:
                     necesidades_match[idNecesidad] = necesidad
+                    retorno.append(necesidad)
                     break
 
-    return necesidades_match.values()
+    return retorno
 
 
 def obtener_necesidades(idUsuario,idHabilidades):
-    necesidades = BaseDeDatos.correr_sql(f"SELECT * FROM necesidad WHERE (id_habilidad = {idHabilidades} or(id_usuario ={idUsuario}) order by fecha_creado")
+    necesidades = BaseDeDatos.correr_sql(f"SELECT * FROM necesidad WHERE (ID_habilidad = {idHabilidades} or(ID_usuario ={idUsuario}) order by fecha_creado")
     return necesidades
 
 
 def agregar_necesidades(id_usuario,id_habilidad,necesidad):
-    necesidades=BaseDeDatos.correr_sql(f"INSERT INTO necesidad (id_habilidad,id_usuario,descripcion_necesidad,fecha_creado) VALUES ({id_habilidad},{id_usuario},'{necesidad}',now())")
-    return True
+    necesidadId = BaseDeDatos.insert_sql(f"INSERT INTO necesidad (ID_habilidad,ID_usuario,descripcion_necesidad,fecha_creado) VALUES ({id_habilidad},{id_usuario},'{necesidad}',now())")
+    return seleccionar_por_id(necesidadId)
+
 

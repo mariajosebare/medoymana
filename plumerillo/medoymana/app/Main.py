@@ -45,7 +45,7 @@ def matcheo(id_necesidad):
         'necesidades': Necesidades.seleccionar_match(necesidad['ID_usuario'], necesidad['ID_habilidad']),
         'publicacion': necesidad
     }
-    return render_template('pages/matcheo.html', result=result)
+    return jsonify(result)
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -104,11 +104,10 @@ def habilidades():
 
 @app.route("/necesidades", methods=['PUT'])
 def agregar_necesidad():
-    id_habilidad = request.form['id_habilidad']
-    id_usuario = request.form['id_usuario']
+    id_habilidad = request.form['ID_habilidad']
+    id_usuario = request.form['ID_usuario']
     necesidad = request.form['necesidad']
-    Necesidades.agregar_necesidades(id_usuario, id_habilidad, necesidad)
-    return jsonify(True)
+    return jsonify(Necesidades.agregar_necesidades(id_usuario, id_habilidad, necesidad))
 
 
 

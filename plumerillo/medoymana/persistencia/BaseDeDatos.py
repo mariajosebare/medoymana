@@ -15,3 +15,9 @@ def correr_sql(query):
     __cursor.connection.commit()
     return __cursor.fetchall()
 
+
+def insert_sql(query):
+    __cursor.execute(query)
+    __cursor.connection.commit()
+    return __cursor.lastrowid
+
