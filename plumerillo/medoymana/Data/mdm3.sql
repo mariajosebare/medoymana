@@ -1,3 +1,4 @@
+CREATE DATABASE mdm3;
 USE mdm3;
 /* se crea la tabla habilidad la que cuenta con un id y el nombre de dicha habilidad*/
 CREATE TABLE habilidad (
