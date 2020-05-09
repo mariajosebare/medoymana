@@ -20,6 +20,6 @@ def check_habilidades_existe(idUsuario,idHabilidades):
     habilidades = BaseDeDatos.correr_sql(f"SELECT * FROM usuario_habilidad WHERE (ID_usuario = {idUsuario}  and (ID_habilidad = {idHabilidades})")
     return habilidades
 
-def agregar_habilidades(id_usuario,id_habilidad,necesidad):
-    necesidades=BaseDeDatos.correr_sql(f"INSERT INTO necesidad (id_habilidad,id_usuario,descripcion_necesidad,fecha_creado) VALUES ({id_habilidad},{id_usuario},'{necesidad}',now())")
-
+def agregar_habilidades(id_usuario,id_habilidad):
+    add_Habilidades = BaseDeDatos.correr_sql(f"INSERT INTO usuario_habilidad (id_usuario, id_habilidad) VALUES ({id_usuario},{id_habilidad},now())")
+    return add_Habilidades
