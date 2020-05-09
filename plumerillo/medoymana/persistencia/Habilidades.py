@@ -23,3 +23,7 @@ def check_habilidades_existe(idUsuario,idHabilidades):
 def agregar_habilidades(id_usuario,id_habilidad):
     add_Habilidades = BaseDeDatos.correr_sql(f"INSERT INTO usuario_habilidad (id_usuario, id_habilidad) VALUES ({id_usuario},{id_habilidad},now())")
     return add_Habilidades
+
+def modificar_habilidades(id_usuario,id_habilidad):
+    add_Habilidades = BaseDeDatos.correr_sql(f"ALTER TABLE usuario_habilidad ADD ({id_usuario},{id_habilidad},now())")
+    return add_Habilidades
