@@ -102,8 +102,12 @@ def habilidades():
 
 
 @app.route("/usuario/<id_usuario>/habilidades", methods=['PUT'])
-def agregar_habilidades_usuario():
-    request.form['habilidades']
+def agregar_habilidades_usuario(id_usuario):
+    id_habilidades = request.form['habilidades'].split(",")
+    Habilidades.eliminar_habilidades_usuario(id_usuario)
+    for id_habilidad in id_habilidades:
+        Habilidades.agregar_habilidades(id_usuario,id_habilidad)
+    return ""
 
 
 @app.route("/necesidades", methods=['PUT'])
