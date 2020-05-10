@@ -7,8 +7,9 @@ def seleccionar_por_usuario(idUsuario):
 
 
 # llamar como seleccionar_por_habilidades(["1", "3", "5"])
-def seleccionar_por_habilidades(idHabilidades):
-    necesidades=BaseDeDatos.correr_sql(f"SELECT * FROM necesidad WHERE ID_habilidad in ({','.join(idHabilidades)})")
+# idUsuario es el usuario que pide las necesidades, por lo tanto no se debería traer las necesidades del mismo
+def seleccionar_por_habilidades(idHabilidades, idUsuario):
+    necesidades=BaseDeDatos.correr_sql(f"SELECT * FROM necesidad WHERE ID_habilidad in ({','.join(idHabilidades)}) AND NOT ID_usuario = {idUsuario}")
     for necesidad in necesidades:
         necesidad['usuario'] = Usuarios.seleccionar_por_id(necesidad['ID_usuario'])
     return necesidades
@@ -32,7 +33,7 @@ def seleccionar_match(idUsuario, idHabilidad): #id usuario soy yo. idHabilidad e
     for habilidad in yo['habilidades']:
         mis_habilidades.append(str(habilidad['ID_habilidad']))
 
-    necesidades = seleccionar_por_habilidades(mis_habilidades)
+    necesidades = seleccionar_por_habilidades(mis_habilidades, idUsuario)
     #Hay que sacar de uno mismo
 
     for necesidad in necesidades:
