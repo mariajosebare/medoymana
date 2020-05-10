@@ -85,7 +85,6 @@ def crear_usuario():
 @app.route("/chat/<id_usuario_1>/<id_usuario_2>", methods=['GET'])
 def chat(id_usuario_1, id_usuario_2):
     result = Chat.obtener_mensajes(id_usuario_1, id_usuario_2)
-
     return jsonify(result)
 
 
@@ -102,13 +101,17 @@ def habilidades():
     return jsonify(habilidades)
 
 
+@app.route("/usuario/<id_usuario>/habilidades", methods=['PUT'])
+def agregar_habilidades_usuario():
+    request.form['habilidades']
+
+
 @app.route("/necesidades", methods=['PUT'])
 def agregar_necesidad():
     id_habilidad = request.form['ID_habilidad']
     id_usuario = request.form['ID_usuario']
     necesidad = request.form['necesidad']
     return jsonify(Necesidades.agregar_necesidades(id_usuario, id_habilidad, necesidad))
-
 
 
 if __name__ == '__main__':
