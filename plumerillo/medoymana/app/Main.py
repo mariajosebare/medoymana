@@ -77,8 +77,8 @@ def crear_usuario():
     numero_puerta =request.form['numero de puerta']
     esquina_1 = request.form['esquina 1']
     esquina_2 = request.form['esquina 2']
-    Usuarios.agregar_usuario(ci, nombre, apellido, fecha_nacimiento, email, telefono, calle, numero_puerta, esquina_1, esquina_2, password)
-    return jsonify(True)
+    usuario = Usuarios.agregar_usuario(ci, nombre, apellido, fecha_nacimiento, email, telefono, calle, numero_puerta, esquina_1, esquina_2, password)
+    return jsonify(usuario)
 
 #Finaliza la ruta de creación de usuario
 
@@ -106,7 +106,7 @@ def agregar_habilidades_usuario(id_usuario):
     id_habilidades = request.form['habilidades'].split(",")
     Habilidades.eliminar_habilidades_usuario(id_usuario)
     for id_habilidad in id_habilidades:
-        Habilidades.agregar_habilidades(id_usuario,id_habilidad)
+        Habilidades.agregar_habilidades(id_usuario, id_habilidad)
     return ""
 
 

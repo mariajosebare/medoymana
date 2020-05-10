@@ -17,17 +17,17 @@ def seleccionar_uno(id):
         return None
 
 
-def check_habilidades_existe(idUsuario,idHabilidades):
+def check_habilidades_existe(idUsuario, idHabilidades):
     habilidades = BaseDeDatos.correr_sql(f"SELECT * FROM usuario_habilidad WHERE (ID_usuario = {idUsuario}  and (ID_habilidad = {idHabilidades})")
     return habilidades
 
 
-def agregar_habilidades(id_usuario,id_habilidad):
-    add_Habilidades = BaseDeDatos.correr_sql(f"INSERT INTO usuario_habilidad (id_usuario, id_habilidad) VALUES ({id_usuario},{id_habilidad}")
+def agregar_habilidades(id_usuario, id_habilidad):
+    add_Habilidades = BaseDeDatos.correr_sql(f"INSERT INTO usuario_habilidad (id_usuario, id_habilidad) VALUES ({id_usuario},{id_habilidad})")
     return add_Habilidades
 
 
-def modificar_habilidades(id_usuario,id_habilidad):
+def modificar_habilidades(id_usuario, id_habilidad):
     mod_Habilidades = BaseDeDatos.correr_sql(f"ALTER TABLE usuario_habilidad ADD ({id_usuario},{id_habilidad})")
     return mod_Habilidades
 

@@ -29,10 +29,10 @@ def seleccionar_uno(email, password):
 
 def agregar_usuario(ci, nombre, apellido, fecha_nacimiento, email, telefono, calle, numero_puerta, esquina_1, esquina_2,
                     password):
-    usuario = BaseDeDatos.correr_sql(f"INSERT INTO usuario (ci,nombre,apellido,fecha_nacimiento,email,telefono,calle,"
+    usuario_id = BaseDeDatos.insert_sql(f"INSERT INTO usuario (ci,nombre,apellido,fecha_nacimiento,email,telefono,calle,"
                                      f"numero_puerta,esquina_1,esquina_2,password) VALUES ({ci},'{nombre}',"
                                      f"'{apellido}','{fecha_nacimiento}','{email}',{telefono},'{calle}',"
                                      f"'{numero_puerta}','{esquina_1}','{esquina_2}','{password}')")
-    return usuario
+    return seleccionar_por_id(usuario_id)
 
 
