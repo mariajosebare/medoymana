@@ -37,8 +37,8 @@ def agregar_usuario(ci, nombre, apellido, fecha_nacimiento, email, telefono, cal
 
 
 # Pasamos a definir la variable de modificacion de usuario
-def modificar_pUsuario(password):
-    password = BaseDeDatos.insert_sql(f"INSERT INTO password (password) VALUES ({password})")
-    return modificar_pUsuario(password)
+def modificar_usuario(id_usuario, ci, nombre, apellido, fecha_nacimiento, email, telefono, calle, numero_puerta, esquina_1, esquina_2):
+    BaseDeDatos.correr_sql(f"UPDATE usuario SET ci = {ci}, nombre = {nombre}, apellido = {apellido} WHERE ID_usuario = {id_usuario}")
+    return seleccionar_por_id(id_usuario)
 
 

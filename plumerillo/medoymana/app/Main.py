@@ -82,12 +82,14 @@ def crear_usuario():
 
 #Finaliza la ruta de creación de usuario
 
-#Realizamos el metodo para la modificacion del perfil de usuario
-@app.route("/modificar_perfil", methods=['PUT'])
-def crear_modUsuario():
-    password = request.form['password']
-    modificar_perfil = Usuarios.modificar_pUsuario(password)
-    return jsonify(password)
+#Realizamos el metodo para la modificacion del perfil de usuario SIN TERMINAR
+@app.route("/usuario/<id_usuario>", methods=['POST'])
+def modificar_usuario(id_usuario):
+    ci = request.form['ci']
+    nombre = request.form['nombre']
+    apellido = request.form['apellido']
+    usuario = Usuarios.modificar_usuario(id_usuario, ci, nombre, apellido)
+    return jsonify(usuario)
 
 
 @app.route("/chat/<id_usuario_1>/<id_usuario_2>", methods=['GET'])
