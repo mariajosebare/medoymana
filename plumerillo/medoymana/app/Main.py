@@ -88,7 +88,10 @@ def modificar_usuario(id_usuario):
     ci = request.form['ci']
     nombre = request.form['nombre']
     apellido = request.form['apellido']
-    usuario = Usuarios.modificar_usuario(id_usuario, ci, nombre, apellido)
+    telefono = request.form['telefono']
+    correo = request.form['email']
+    password = request.form['password']
+    usuario = Usuarios.modificar_usuario(id_usuario, ci, nombre, apellido,telefono,correo,password)
     return jsonify(usuario)
 
 
