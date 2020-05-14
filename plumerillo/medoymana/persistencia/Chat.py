@@ -3,7 +3,7 @@ from plumerillo.medoymana.persistencia import BaseDeDatos, Usuarios
 
 def obtener_mensajes(id1, id2):
     mensajes = BaseDeDatos.correr_sql(f"SELECT * FROM chat WHERE (id_usuario_1 = {id1} or id_usuario_1 = {id2}) and (id_usuario_2 = {id1} or id_usuario_2 = {id2}) order by fecha_hora_mensaje")
-    eliminar_alertas(id1, id2)
+    eliminar_alertas(id2,id1)
     return mensajes
 
 
