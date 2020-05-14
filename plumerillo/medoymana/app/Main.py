@@ -101,17 +101,10 @@ def chat(id_usuario_1, id_usuario_2):
     return jsonify(result)
 
 
-def eliminar_alerta(id_usuario_2):
-    return jsonify(eliminar_alerta(id_usuario_2))
-
-
 @app.route("/chat/<id_usuario_1>/<id_usuario_2>", methods=['PUT'])
 def agregar_mensaje_chat(id_usuario_1, id_usuario_2):
     mensaje = request.form['mensaje']
     return jsonify(Chat.agregar_mensajes(id_usuario_1, id_usuario_2, mensaje))
-
-def obtener_alertas(id_usuario_2):
-    return jsonify(obtener_alertas(id_usuario_2))
 
 
 @app.route("/habilidades", methods=['GET'])
@@ -137,10 +130,10 @@ def agregar_necesidad():
     return jsonify(Necesidades.agregar_necesidades(id_usuario, id_habilidad, necesidad))
 
 
-@app.route("/chat/<id_usuario>/<mensajes>", methods=['GET'])
+@app.route("/chat/<id_usuario>/alertas", methods=['GET'])
 def obtener_mensajes(id_usuario):
-    mensaje = request.form['mensaje']
-    return jsonify(Chat.mensajes( id_usuario, mensaje))
+    alertas = Chat.obtener_alertas(id_usuario)
+    return jsonify(alertas)
 
 
 if __name__ == '__main__':
