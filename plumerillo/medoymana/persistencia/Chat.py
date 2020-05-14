@@ -14,7 +14,7 @@ def agregar_mensajes(id1, id2, mensaje):
 
 
 def obtener_alertas(id2):
-    alertas = BaseDeDatos.correr_sql(f"SELECT * FROM alerta WHERE ID_usuario_2 = '{id2}'")
+    alertas = BaseDeDatos.correr_sql(f"SELECT a.ID_usuario_1, u.nombre FROM alerta a INNER JOIN usuario u ON a.ID_usuario_1 = u.ID_usuario WHERE ID_usuario_2 = '{id2}'")
     return alertas
 
 
